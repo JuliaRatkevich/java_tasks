@@ -1,0 +1,9 @@
+1,2,Wrong number of members
+2.5,+,3,5.5
+12,/,0,Wrong operation
+a,*,4,Wrong numbers
+5,-,2,3.0
+5,*,4,Wrong operation
+10,%,3,Wrong operation
+2,^,3,Wrong operation
+4,*,b,Wrong numbers
