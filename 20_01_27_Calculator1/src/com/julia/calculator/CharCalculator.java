@@ -19,7 +19,7 @@ public class CharCalculator implements ICalculator {
         return operation.apply(num1, num2);
     }
 
-    private String getClassName(char operand) {
+      String getClassName(char operand) {
         return "Operation_" + (int)operand;
     }
 }

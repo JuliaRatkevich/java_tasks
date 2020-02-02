@@ -1,10 +1,11 @@
-package com.julia;
-import com.julia.calculator.ICalculator;
-import com.julia.calculator.WrongOperandException;
+package com.telran;
+
+import com.telran.calculator.ICalculator;
+import com.telran.calculator.WrongOperandException;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -46,12 +47,4 @@ public class OperationProcessorTest {
 
     }
 
-    @Test
-    public void testProcessString_illegalLine_wrongSecondNumber() {
-        String line = "2,+,rfq";
-
-        String expected = line + OperationProcessor.DELIMITER + OperationProcessor.WRONG_SECOND_NUMBER_ERROR_MESSAGE;
-        assertEquals(expected, op.processString(line));
-
-    }
 }

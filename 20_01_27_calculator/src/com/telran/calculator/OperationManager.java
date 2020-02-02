@@ -1,4 +1,4 @@
-package com.julia.calculator;
+package com.telran.calculator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;

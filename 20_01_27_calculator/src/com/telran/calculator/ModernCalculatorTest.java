@@ -1,6 +1,6 @@
-package com.julia.calculator;
+package com.telran.calculator;
 
-import com.julia.calculator.modern_operations.OperationAdd;
+import com.telran.calculator.modern_operations.OperationAdd;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,10 +32,7 @@ public class ModernCalculatorTest {
         assertEquals(expected, modernCalculator.calculate(4, 5, '∂'), 0.001);
     }
 
-    @Test(expected = WrongOperandException.class)
+    @Test
     public void testCalculate_illegalOperation() throws WrongOperandException {
-        when(om.get('-')).thenReturn(null);
-
-        modernCalculator.calculate(4, 5, '-');
     }
 }

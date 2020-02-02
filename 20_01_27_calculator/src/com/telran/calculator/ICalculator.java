@@ -1,4 +1,4 @@
-package com.julia.calculator;
+package com.telran.calculator;
 
 public interface ICalculator {
 

@@ -1,7 +1,9 @@
-package com.julia.calculator.char_operations;
-import com.julia.calculator.Operation;
+package com.telran.calculator.char_operations;
+
+import com.telran.calculator.Operation;
 import org.junit.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.Assert.*;
 
 public class Operation_43Test {
 

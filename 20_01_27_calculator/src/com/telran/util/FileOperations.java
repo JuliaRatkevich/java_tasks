@@ -1,4 +1,4 @@
-package com.julia.util;
+package com.telran.util;
 
 import java.io.*;
 import java.util.ArrayList;

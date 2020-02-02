@@ -1,7 +1,7 @@
-package com.julia;
+package com.telran;
 
-import com.julia.calculator.ICalculator;
-import com.julia.calculator.WrongOperandException;
+import com.telran.calculator.ICalculator;
+import com.telran.calculator.WrongOperandException;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.julia.calculator.modern_operations;
+package com.telran.calculator.modern_operations;
 
-import com.julia.calculator.ModernOperation;
+import com.telran.calculator.ModernOperation;
 
 public class OperationAdd implements ModernOperation {
     @Override
@@ -13,4 +13,3 @@ public class OperationAdd implements ModernOperation {
         return num1 + num2;
     }
 }
-

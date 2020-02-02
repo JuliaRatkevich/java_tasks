@@ -7,6 +7,13 @@ import java.util.List;
 
 public class OperationProcessor {
 
+     static final String WRONG_OPERATION = "Wrong operation";
+
+     static final String WRONG_NUMBERS = "Wrong numbers";
+
+     static final String WRONG_NUMBER_OF_MEMBERS = "Wrong number of members";
+
+
     private ICalculator calculator;
 
     OperationProcessor(ICalculator calculator) {
@@ -26,11 +33,11 @@ public class OperationProcessor {
         return res;
     }
 
-    private String processString(String line) {
+    String processString(String line) {
         String[] members = line.split(DELIMITER);
 
         if (members.length != 3) {
-            return line + DELIMITER + "Wrong number of members";
+            return line + DELIMITER + WRONG_NUMBER_OF_MEMBERS;
         }
 
         double result = 0;
@@ -38,12 +45,12 @@ public class OperationProcessor {
             double num1 = Double.parseDouble(members[0]);
             double num2 = Double.parseDouble(members[2]);
 
-            char operand = members[1].charAt(0);    //
+            char operand = members[1].charAt(0);
             result = calculator.calculate(num1, num2, operand);
         } catch (WrongOperandException e) {
-            return line + DELIMITER + "Wrong operation";
+            return line + DELIMITER + WRONG_OPERATION;
         } catch (NumberFormatException e) {
-            return line + DELIMITER + "Wrong numbers";
+            return line + DELIMITER + WRONG_NUMBERS;
         }
 
         return line + DELIMITER + result;
