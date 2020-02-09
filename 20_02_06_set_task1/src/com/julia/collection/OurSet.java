@@ -1,6 +1,8 @@
 package com.julia.collection;
 
-public interface OurSet<E> {
+import java.util.Iterator;
+
+public interface OurSet<E>  extends Iterable<E> {
 
     /**
      * adds a new element to the set

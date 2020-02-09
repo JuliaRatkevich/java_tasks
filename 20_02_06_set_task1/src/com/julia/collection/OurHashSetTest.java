@@ -114,13 +114,14 @@ public class OurHashSetTest {
         OurSet<Integer> set = new OurHashSet<>() ;
         set.add(1);
         set.add(2);
-        set.add(3);
+        set.add(8);
+        set.add(2);
 
         OurSet<Integer> otherSet = new OurHashSet<>() ;
         otherSet.add(1);
-        otherSet.add(2);
-        otherSet.add(4);
         otherSet.add(5);
+        otherSet.add(4);
+        otherSet.add(2);
 
         Integer[] expected = {1,2};
 

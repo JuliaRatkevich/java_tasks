@@ -1,4 +1,6 @@
 package com.julia.collection;
 
-public class TreeSet {
+public class TreeSet extends OurHashSet {
+
+
 }

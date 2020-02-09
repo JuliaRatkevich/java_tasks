@@ -1,6 +1,7 @@
 package com.julia.collection;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class OurHashSet<E> implements OurSet<E> {
@@ -31,7 +32,6 @@ public class OurHashSet<E> implements OurSet<E> {
     public boolean contains(E elt) {
         return source.containsKey(elt);
     }
-
 
     @Override //сделано в классе
     public boolean addAll(OurSet<E> other) {
@@ -70,8 +70,14 @@ public class OurHashSet<E> implements OurSet<E> {
             }
         }
 
-         return res;
+        return res;
+    }
+
+    @Override
+    public Iterator<E> iterator() {           //что бы OurHashSet стал iterable
+        return source.keySet().iterator();
     }
 }
+
 
 
