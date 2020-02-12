@@ -57,20 +57,33 @@ public class OurHashSet<E> implements OurSet<E> {
         return res;
     }
 
+//    @Override
+//    public boolean retainAll(OurSet<E> other) {
+//        OurHashSet<E> narrowedOther = (OurHashSet<E>) other;
+//        boolean res = false;
+//        for (E elt : this.source.keySet()) {
+//            if (narrowedOther.contains(elt)) {
+//                continue;
+//            } else {
+//                this.remove(elt);
+//                res = true;
+//            }
+//        }
+//
+//        return res;
+//    }
+
     @Override
     public boolean retainAll(OurSet<E> other) {
-        OurHashSet<E> narrowedOther = (OurHashSet<E>) other;
         boolean res = false;
-        for (E elt : this.source.keySet()) {
-            if (narrowedOther.contains(elt)) {
-                continue;
-            } else {
-                this.remove(elt);
-                res = true;
-            }
+        OurSet<E> thisMinusOther = new OurHashSet<>();
+
+        for (E elt : this) {
+            if (!other.contains(elt))
+                thisMinusOther.add(elt);
         }
 
-        return res;
+        return this.removeAll(thisMinusOther);
     }
 
     @Override

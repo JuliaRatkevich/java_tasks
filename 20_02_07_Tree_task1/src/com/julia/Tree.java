@@ -82,8 +82,8 @@ public class Tree {
     }
 
     private int heightR(TreeNode node) {
-        if (node == null) {
-            return -1;
+        if (node.left == null && node.right == null) {
+            return 0;
         }
 
         int leftHeight = heightR(node.left);

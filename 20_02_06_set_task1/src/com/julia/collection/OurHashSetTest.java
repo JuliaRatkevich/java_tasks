@@ -87,7 +87,7 @@ public class OurHashSetTest {
     }
 
     @Test
-    public void removeAll_removes_elemnts_that_are_in_other_set() {
+    public void removeAll_removes_elements_that_are_in_other_set() {
         OurSet<Integer> set = new OurHashSet<>() ;
         set.add(1);
         set.add(2);
