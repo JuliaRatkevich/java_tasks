@@ -35,6 +35,6 @@ public class Tarakan implements Runnable {
         long currentTime = System.currentTimeMillis();
         List finishInfo = new ArrayList<>();
         finishInfo.add(id);
-        System.out.print( finishInfo + " Finish");
+        System.out.print( finishInfo + " " );
     }
 }

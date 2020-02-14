@@ -28,6 +28,7 @@ public class Main {
 
         long finishTime;
         finishTime = System.currentTimeMillis() - currentTime;
+        System.out.println();
         System.out.println("Time of finish :" + finishTime);
 
 
