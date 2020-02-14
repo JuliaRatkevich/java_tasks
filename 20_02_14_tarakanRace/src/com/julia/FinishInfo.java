@@ -1,13 +1,15 @@
 package com.julia;
-import java.util.List;
 
-
-public class FinishInfo  {
+public class FinishInfo {
 
     /**
      * tarakan number
      */
     int tarakanId;
+
+    /**
+     * time of finish in milliseconds
+     */
     long finishTime;
 
     public FinishInfo(int tarakanId, long finishTime) {
@@ -15,4 +17,11 @@ public class FinishInfo  {
         this.finishTime = finishTime;
     }
 
+    public int getTarakanId() {
+        return tarakanId;
+    }
+
+    public long getFinishTime() {
+        return finishTime;
+    }
 }
