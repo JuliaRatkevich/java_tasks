@@ -1,0 +1,8 @@
+heLlo#upperCase
+helLLO#lowerCase
+adfsWWW2123#lowerCase
+eqwerLow#lowerCase
+UpperCase#upperCase
+LowerCase#lowerCase
+Upper#upperCase
+Lower#lowerCase
