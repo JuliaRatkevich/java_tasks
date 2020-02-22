@@ -1,16 +1,19 @@
 package com.julia;
-
 import com.julia.Operation.Operation;
-
+import java.io.PrintWriter;
 import java.util.concurrent.BlockingQueue;
+
 
 public class TextHandler implements Runnable {
     private OperationProvider operationProvider;
     private BlockingQueue<String> blockingQueue;
+    private PrintWriter printWriter;
 
-    public TextHandler(OperationProvider operationProvider, BlockingQueue<String> blockingQueue) {
+
+    public TextHandler(OperationProvider operationProvider, BlockingQueue<String> blockingQueue, PrintWriter printWriter) {
         this.operationProvider = operationProvider;
         this.blockingQueue = blockingQueue;
+        this.printWriter = printWriter;
     }
 
     @Override
@@ -30,6 +33,7 @@ public class TextHandler implements Runnable {
                     if (operation != null) {
                         String result = operation.operate(stringPlusOperation[0]);
                         System.out.println(result + ": " + Thread.currentThread().getName());
+                        printWriter.println(result + ": " + Thread.currentThread().getName());
                     }
                 }
             }
