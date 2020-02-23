@@ -1,8 +1,8 @@
-lowercase: Thread-5
 UPPER: Thread-6
-adfswww2123: Thread-2
-helllo: Thread-1
-UPPERCASE: Thread-4
 eqwerlow: Thread-3
-HELLO: Thread-0
+UPPERCASE: Thread-4
+HELLO: Thread-1
+helllo: Thread-0
 lower: Thread-7
+lowercase: Thread-5
+adfswww2123: Thread-2

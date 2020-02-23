@@ -8,6 +8,7 @@ public class TextHandler implements Runnable {
     private OperationProvider operationProvider;
     private BlockingQueue<String> blockingQueue;
     private PrintWriter printWriter;
+    private String delimiter = "#";
 
 
     public TextHandler(OperationProvider operationProvider, BlockingQueue<String> blockingQueue, PrintWriter printWriter) {
@@ -26,7 +27,7 @@ public class TextHandler implements Runnable {
                     return;
                 }
 
-                String[] stringPlusOperation = fileString.split("#");
+                String[] stringPlusOperation = fileString.split(delimiter);
                 if (stringPlusOperation.length == 2) {
                     String operationName = stringPlusOperation[1];
                     Operation operation = operationProvider.getOperationByName(operationName);
