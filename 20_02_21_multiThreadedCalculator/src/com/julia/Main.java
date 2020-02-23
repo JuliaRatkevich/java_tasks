@@ -15,7 +15,7 @@ public class Main {
     static int HANDLERS_COUNT = 10;
 
     public static void main(String[] args) throws FileNotFoundException, InterruptedException {
-        BlockingQueue<String> queue = new LinkedBlockingQueue<String>();
+        BlockingQueue<String> queue = new LinkedBlockingQueue<>();
 
         FileReader fileReader = new FileReader("file.txt");
         Scanner scanner = new Scanner(fileReader);
