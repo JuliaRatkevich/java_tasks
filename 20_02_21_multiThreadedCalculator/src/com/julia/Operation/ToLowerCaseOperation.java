@@ -8,5 +8,6 @@ public class ToLowerCaseOperation implements Operation {
     public String operate(String operation) {
         String result = operation.toLowerCase();
         return  result;
+
     }
 }
