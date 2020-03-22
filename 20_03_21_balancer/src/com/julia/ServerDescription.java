@@ -1,6 +1,6 @@
 package com.julia;
 
-public class Server {
+public class ServerDescription {
     private String id;
     private Integer port;
     private Integer workload;
@@ -21,7 +21,7 @@ public class Server {
         return workload;
     }
 
-    public Server(String id, Integer port) {
+    public ServerDescription(String id, Integer port) {
         this.id = id;
         this.port = port;
         this.workload = 0;

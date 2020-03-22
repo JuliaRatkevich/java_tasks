@@ -9,27 +9,34 @@ public class Balancer implements Runnable {
     private DatagramSocket socket;
     private byte[] buf = new byte[256];
 
-    private ArrayList<Server> servers;
+    private ArrayList<ServerDescription> serverDescriptions;
     private static Integer position = 0;
 
-    public Balancer(ArrayList<Server> servers) throws Exception {
-        this.servers = servers;
+    public Balancer(ArrayList<ServerDescription> serverDescriptions) throws Exception {
+        this.serverDescriptions = serverDescriptions;
     }
 
     public Integer getTarget() {
         Integer target;
         synchronized (position) {
-            if (position > servers.size() - 1) {
+            if (position > serverDescriptions.size() - 1) {
                 position = 0;
             }
 //            target = servers.get(position).getPort();
             position++;
 
-            Server server = servers.stream()
-                    .min(Comparator.comparing(Server::getWorkload))
+            ServerDescription serverDescription = serverDescriptions.stream()
+                    .min(Comparator.comparing(ServerDescription::getWorkload))
                     .get();
-            System.out.println(server.getId() + ":" + server.getWorkload());
-            target = server.getPort();
+
+            System.out.println("----------------------------------------------------");
+            serverDescriptions.stream().forEach(s ->
+                        System.out.println(s.getId() + ":" + s.getWorkload())
+                     );
+            System.out.println("Picked: " + serverDescription.getId() + ":" + serverDescription.getWorkload());
+            System.out.println("----------------------------------------------------");
+//            System.out.println(server.getId() + ":" + server.getWorkload());
+            target = serverDescription.getPort();
         }
         return target;
     }
@@ -60,25 +67,25 @@ public class Balancer implements Runnable {
     private void handleServerMessage(String message, Integer port) {
         if (message.contains("_submitted_")) {
             String serverId = message.split("#")[1];
-            Server serverWithId = servers.stream()
-                    .filter(server -> server.getId().equals(serverId))
+            ServerDescription serverDescriptionWithId = serverDescriptions.stream()
+                    .filter(serverDescription -> serverDescription.getId().equals(serverId))
                     .findFirst()
                     .orElse(null);
-            if (serverWithId != null) {
-                Integer workload = serverWithId.getWorkload();
-                serverWithId.setWorkload(workload + 1);
+            if (serverDescriptionWithId != null) {
+                Integer workload = serverDescriptionWithId.getWorkload();
+                serverDescriptionWithId.setWorkload(workload + 1);
             }
         }
 
         if (message.contains("_handled_")) {
             String serverId = message.split("#")[1];
-            Server serverWithId = servers.stream()
-                    .filter(server -> server.getId().equals(serverId))
+            ServerDescription serverDescriptionWithId = serverDescriptions.stream()
+                    .filter(serverDescription -> serverDescription.getId().equals(serverId))
                     .findFirst()
                     .orElse(null);
-            if (serverWithId != null) {
-                Integer workload = serverWithId.getWorkload();
-                serverWithId.setWorkload(workload - 1);
+            if (serverDescriptionWithId != null) {
+                Integer workload = serverDescriptionWithId.getWorkload();
+                serverDescriptionWithId.setWorkload(workload - 1);
             }
         }
     }

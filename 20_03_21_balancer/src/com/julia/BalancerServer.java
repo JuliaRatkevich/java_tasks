@@ -11,12 +11,12 @@ public class BalancerServer {
     private Balancer balancer;
 
     public BalancerServer() throws Exception {
-        ArrayList<Server> servers = new ArrayList<>();
-        servers.add(new Server("Masha", 7000));
-        servers.add(new Server("Petya", 7001));
-        servers.add(new Server("Vasya", 7002));
+        ArrayList<ServerDescription> serverDescriptions = new ArrayList<>();
+        serverDescriptions.add(new ServerDescription("Masha", 7000));
+        serverDescriptions.add(new ServerDescription("Petya", 7001));
+        serverDescriptions.add(new ServerDescription("Vasya", 7002));
 
-        this.balancer = new Balancer(servers);
+        this.balancer = new Balancer(serverDescriptions);
     }
 
     public void start(int port) throws Exception {
