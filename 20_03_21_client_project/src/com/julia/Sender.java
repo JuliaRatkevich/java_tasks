@@ -1,7 +1,6 @@
 package com.julia;
-
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
 
 public class Sender implements Runnable {
     private Client client;

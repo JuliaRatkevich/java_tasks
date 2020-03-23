@@ -1,10 +1,10 @@
 package com.julia;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+
 
 public class Handler implements Runnable {
     private Balancer balancer;
@@ -16,6 +16,7 @@ public class Handler implements Runnable {
     private Socket serverSocket;
     private PrintWriter serverOut;
     private BufferedReader serverIn;
+
 
     public Handler(Socket clientSocket, Balancer balancer) {
         this.clientSocket = clientSocket;
@@ -66,5 +67,4 @@ public class Handler implements Runnable {
         serverOut.close();
         serverSocket.close();
     }
-
 }

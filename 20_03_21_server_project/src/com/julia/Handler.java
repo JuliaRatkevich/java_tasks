@@ -1,7 +1,5 @@
 package com.julia;
-
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.DatagramPacket;
@@ -9,6 +7,8 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.concurrent.TimeUnit;
+
+
 
 public class Handler implements Runnable {
     private Socket clientSocket;
@@ -20,6 +20,7 @@ public class Handler implements Runnable {
     private DatagramSocket balancerSocket;
     private InetAddress balancerAddress;
     private byte[] buf;
+
 
     public Handler(Socket clientSocket, String id) {
         this.clientSocket = clientSocket;
@@ -61,7 +62,6 @@ public class Handler implements Runnable {
     }
 
     private void notifyBalance(String message) throws Exception {
-//        System.out.println("NOTIFY: " + message);
         buf = message.getBytes();
         DatagramPacket packet
                 = new DatagramPacket(buf, buf.length, balancerAddress, 6000);
